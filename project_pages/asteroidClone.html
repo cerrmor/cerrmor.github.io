@@ -66,9 +66,12 @@
 								
 								<p>The goal of this application was to explore the concept of applying physical properties such as gravity to an animation. 
 								By implementing simple physics functions and applying them to elements within the game, a basic physics engine was created.
-								This allowed objects within the game to respond more realistically to influences from the application such as the lack of
-								friction within space. This creates for a more enjoyable playing experience as it adds to the illusions built by the game. 
-								This project was one part of four that served as the midterm submission for CM2030 Graphics Programming.</p>
+								This allowed objects within the game to respond more realistically. For example, the ship continues to move in any direction 
+								once started. This is like the effect that a lack of friction in space causes. Applying these force responses to actions 
+								creates for a more enjoyable playing experience as it adds to the illusions built by the game. This project was one part of 
+								four that served as the midterm submission for CM2030 Graphics Programming.</p>
+	
+	
 
 								<!-- <div class="box alt">
 									<div class="row gtr-uniform gtr-uniform">
@@ -79,14 +82,9 @@
 
 								<h2>The experience</h2>
 								
-								<p>The goal of the Astroids clone is to survive as long as possiable. The user controles a ship and tries to destroy all the 
-								falling astroids before they hit the planet. The user controls the ship by pressing the directional arrow keys and fires the 
-								weapon systems by pressing spacebar. If the ship touches an astroid or the planet surface, the game ends and must be restarted.
-								Similar to classic astroids when the ship moves in any direction it will continue to move for a time, due to low friction forces.
-								Additionaly, if the users ship approaches the planet surface it will be drawne towards it due to gravity. These physical forces
-								add essential depth to the experience of the game and show why applying physics to an animation can enhance the end product. 
-								</p>
-								
+								<p>The users goal in the Asteroids clone is to survive as long as possible. The user controls a ship and tries to destroy all the 
+								falling asteroids before they hit the planet. The user controls the ship by pressing the directional arrow keys and fires the 
+								weapon systems by pressing spacebar. If the ship touches an asteroid or the planet surface, the game ends and must be restarted.</p>	
 								<!-- <div class="box alt">
 									<div class="row gtr-uniform gtr-uniform">
 										<div class="col-1"><span class="image fit"></span></div>
@@ -98,11 +96,12 @@
 
 								<h2>Building Blocks</h2>
 							
-								<p>The application was built using the p5.js JavaScript library, and some basic HTML code. There were four main componentes 
-								essential for this game to function, a system of collision detecton, bullet and astroid managment, and finally a system
-								for managing the ship. Each was established as its own class element to keep the code clean and modular. The astroid game 
-								elements were propelled towards the planet by applying a small gravity force to the astroides acceleration. This all served
-								to create a compelling game experienc.</p>
+								<p>The application was built using the p5.js JavaScript library, basic HTML code and CSS. There were four main components 
+								essential for this game to function, a system of collision detection, bullet, and asteroid management, and finally a system
+								for managing the ship. Each was established as its own class element to keep the code clean and modular. The asteroid game 
+								elements were spawned randomly and propelled towards the planet by applying a small gravity force to add acceleration. When a 
+								users bullet collides with an asteroid, or leave the screen the bullet is removed from the array that stores its information 
+								this also happens for the asteroid. This system allows the game to remain relatively small and efficient.</p>
 								
 								<!-- <div class="box alt">
 									<div class="row gtr-uniform gtr-uniform">
@@ -114,7 +113,7 @@
 								
 								<h2>User Interaction</h2>
 
-								<p>The user interactes with the experience by controlling the ships direction with the arrow keys and fireing its gun system 
+								<p>The user interacts with the experience by controlling the ships direction with the arrow keys and firing its gun system 
 								to destroy asteroids with the spacebar</p>
 
 								<!-- <div class="box alt">
@@ -127,8 +126,8 @@
 								
 								<h2>Conclusion</h2>
 
-								<p>This application was effective at showcasing the value of applying physical forces to game elements and animations. furthermor,
-								By doing so, it created a better game experience that was more fun to play.</p>
+								<p>This application was effective at showcasing the value of applying physical forces to game elements and animations. It made 
+								for compelling game play by adding interesting challenges, despite the simplicity of the game.</p>
 		
 							</section>
 
