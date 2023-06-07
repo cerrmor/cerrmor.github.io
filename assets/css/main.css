@@ -3236,7 +3236,7 @@ input, select, textarea {
 			width: 100%;
 			height: 100%;
 			background-color: #212931;
-			background-image: url("../../images/overlay.png"), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/bg.jpg");
+			background-image: url("../../images/overlay.png"), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/background.png");
 			background-size: auto,								auto,														100% auto;
 			background-position: center,								center,														top center;
 			background-repeat: repeat,								no-repeat,													no-repeat;
@@ -3390,6 +3390,7 @@ input, select, textarea {
 		#intro h1 {
 			font-size: 5rem;
 			line-height: 1;
+			text-shadow: 2px 2px black;
 		}
 
 		#intro p {
@@ -3397,6 +3398,7 @@ input, select, textarea {
 			font-style: italic;
 			margin-top: -0.25rem;
 			text-align: center;
+			text-shadow: 2px 2px black;
 		}
 
 		#intro + #header {
