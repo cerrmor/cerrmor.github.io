@@ -3031,14 +3031,21 @@ input, select, textarea {
 			letter-spacing: 0.075em;
 			line-height: 1.5;
 			padding: 0 0.75rem 0.75rem 0.75rem;
-			text-align: left;
+			text-align:left;
 			text-transform: uppercase;
 		}
+		table .linkCell {
+			width: 12%;
+		}
+		
 
 			@media screen and (max-width: 980px) {
 
 				table th {
 					font-size: 0.9rem;
+				}
+				table .linkCell {
+					width: 15%;
 				}
 
 			}
