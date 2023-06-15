@@ -3294,6 +3294,7 @@ input, select, textarea {
 
 	#intro {
 		color: #ffffff;
+		background-color: rgba(0, 0, 0, 0.4) ;
 		padding: 8rem 4rem 6rem 4rem ;
 		-moz-align-items: center;
 		-webkit-align-items: center;
