@@ -300,6 +300,12 @@ input, select, textarea {
 			border-bottom-color: transparent;
 			color: #18bfef !important;
 		}
+		a:hover .construction{
+			border-bottom-color: transparent;
+			/* padding: 0; */
+			color: #18bfef !important;
+			background-color: transparent;;
+		}
 
 	strong, b {
 		color: #212931;
@@ -2585,6 +2591,26 @@ input, select, textarea {
 		.icon.brands:before {
 			font-family: 'Font Awesome 5 Brands';
 		}
+	
+	.construction{
+		-moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		-webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		-ms-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		border-bottom: dotted 1px;
+		text-decoration: none;
+	}
+		.construction{
+			color:lightsalmon; 
+			padding:4px; 
+			border-radius: 3px; 
+			background-color:black;
+		}
+	/* #construction:hover {
+		border-bottom-color: transparent;
+		color: #18bfef !important;
+		background-color: transparent;
+	}	 */
 
 /* Image */
 
