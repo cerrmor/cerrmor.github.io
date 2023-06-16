@@ -65,9 +65,17 @@
 														
 								<h2>The Brief</h2>
 								
-								<p>The Smart Home Hub served as the midterm project for CM2040 Databases Networks and the Web. The goal
-								of the project was to explore the process of full stack development.
-								</p>
+								<p>The Smart Home Hub served as the midterm project for CM2040 Databases Networks and the Web, aswell as an 
+								example of full stack development. The purpose of this project was to build a dynamic web application that 
+								included:</p>
+								
+								<ul>
+									<li>Database access</li>
+									<li>Procedurally generated web pages</li>
+									<li>Allowed user to: visualise, edit, and interact with the data in the database.</li>
+								</ul>
+
+								<p>The form the project took, was a dashboard for networking and controlling smart home devices.</p>
 
 								<!-- <div class="box alt">
 									<div class="row gtr-uniform gtr-uniform">
@@ -78,20 +86,101 @@
 
 								<h2>The experience</h2>
 								
-								<p>something goes here</p>
+								<p>When a user first navigates to the application, they are greeted by the following home page.</p>
 								
-								<!-- <div class="box alt">
+								<div class="box alt">
+									<div class="row gtr-uniform gtr-uniform">
+										<div class="col-2"><span class="image fit"></span></div>
+										<div class="col-8"><span class="image fit"><img src="../images/smartHub/home.jpg" alt="" /></span></div>
+									</div>
+								</div>
+
+								<p>The home pages includes a basic greating to welcome the user, it also includes a statement indicating that
+								a new users first action should be to click on the "add new device" button. If the user does this, the application 
+								transisitions to the add device page, populating the list of available devices from the database procedurally.</p>
+								
+								<div class="box alt">
+									<div class="row gtr-uniform gtr-uniform">
+										<div class="col-3"><span class="image fit"></span></div>
+										<div class="col-6"><span class="image fit"><img src="../images/smartHub/addNew.jpg" alt="" /></span></div>
+									</div>
+								</div>
+
+								<p>This page allows the user to select a device to add; from a list of twenty available devices. If the user clicks 
+								ok without selecting a device, an alert is shown indicating that they have not yet selected anything. Once the user 
+								has selected a device and pressed ok, a new page is shown allowing the user to select the devices initial settings. 
+								Upon submission, a message indicating the device has been successfully added is displayed and the user is redirected
+								back to the initial add device page.</p>
+								
+								<div class="box alt">
 									<div class="row gtr-uniform gtr-uniform">
 										<div class="col-1"><span class="image fit"></span></div>
-										<div class="col-5"><span class="image fit"><img src="../images/CSFinalProject/pythagoras.jpg" alt="" /></span></div>
-										<div class="col-5"><span class="image fit"><img src="../images/CSFinalProject/heron.jpg" alt="" /></span></div>
+										<div class="col-5"><span class="image fit"><img src="../images/smartHub/addNewSettings.jpg" alt="" /></span></div>
+										<div class="col-5"><span class="image fit"><img src="../images/smartHub/deviceAdded.jpg" alt="" /></span></div>
+										<!-- <div class="col-4"><span class="image fit"><img src="../images/CSFinalProject/viscosity.jpg" alt="" /></span></div> -->
 									</div>
-								</div> -->
+								</div>
 								
+								<p>From here if the user is done adding new devices, they have the ability to view the ones they have already added, by 
+								clicking The "device status button". This takes them to a page that lists all user devices and allows viewing editing 
+								current settings.</p>
 
-								<h2>Building Blocks: Physics Engine</h2>
+								<div class="box alt">
+									<div class="row gtr-uniform gtr-uniform">
+										<div class="col-1"><span class="image fit"></span></div>
+										<div class="col-5"><span class="image fit"><img src="../images/smartHub/deviceStatus.jpg" alt="" /></span></div>
+										<div class="col-5"><span class="image fit"><img src="../images/smartHub/selectedDeviceStatus.jpg" alt="" /></span></div>
+										<!-- <div class="col-4"><span class="image fit"><img src="../images/CSFinalProject/viscosity.jpg" alt="" /></span></div> -->
+									</div>
+								</div>
+
+								<p>If the user chooses to update a device the following two pages will be shown upon compleating the action.</p>
+								
+								<div class="box alt">
+									<div class="row gtr-uniform gtr-uniform">
+										<div class="col-1"><span class="image fit"></span></div>
+										<div class="col-5"><span class="image fit"><img src="../images/smartHub/updateSettings.jpg" alt="" /></span></div>
+										<div class="col-5"><span class="image fit"><img src="../images/smartHub/settingsUpdated.jpg" alt="" /></span></div>
+										<!-- <div class="col-4"><span class="image fit"><img src="../images/CSFinalProject/viscosity.jpg" alt="" /></span></div> -->
+									</div>
+								</div>
+
+								<p>If the user chooses to delete a device, the user is alerted to the fact that deleting cannot be undone.</p>
+								
+								<div class="box alt">
+									<div class="row gtr-uniform gtr-uniform">
+										<div class="col-3"><span class="image fit"></span></div>
+										<div class="col-6"><span class="image fit"><img src="../images/smartHub/deleteWarning.jpg" alt="" /></span></div>
+									</div>
+								</div>
+
+								<p>After the user has selected ok they are presented with the choice to continue with the deletion or to cancel the action.
+								If they select to cancel, a message indicating the device still exsists is shown. If they choose to proceed, a new message 
+								indicating the device was successfully removed is show and the user is redirected back to the device status page.</p>
+
+								<div class="box alt">
+									<div class="row gtr-uniform gtr-uniform">
+										<div class="col-1"><span class="image fit"></span></div>
+										<div class="col-5"><span class="image fit"><img src="../images/smartHub/deleteCancel.jpg" alt="" /></span></div>
+										<div class="col-5"><span class="image fit"><img src="../images/smartHub/deviceDeleted.jpg" alt="" /></span></div>
+										<!-- <div class="col-4"><span class="image fit"><img src="../images/CSFinalProject/viscosity.jpg" alt="" /></span></div> -->
+									</div>
+								</div>
+
+								<p>The last page available to the user is the about page. This page displays the purpose of the application, and introduces the
+								designer.</p>
+								
+								<div class="box alt">
+									<div class="row gtr-uniform gtr-uniform">
+										<div class="col-2"><span class="image fit"></span></div>
+										<div class="col-8"><span class="image fit"><img src="../images/smartHub/about.jpg" alt="" /></span></div>
+									</div>
+								</div>
+
+								<h2>Building Blocks</h2>
 							
-								<p>something goes here</p>
+								<p>Node.js and Express was used to build a simple web server, a MySQL relational database was used to store the data to be displayed, and the webpages were populated with the required 
+								information upon page request.</p>
 								
 								<!-- <div class="box alt">
 									<div class="row gtr-uniform gtr-uniform">
@@ -100,33 +189,22 @@
 									</div>
 								</div> -->
 								
-								
-								<h2>Simulation layout</h2>
-
-                                <p>something goes here</p>
-
-								<!-- <div class="box alt">
-									<div class="row gtr-uniform gtr-uniform">
-										<div class="col-4"><span class="image fit"><img src="../images/CSFinalProject/museum.jpg" alt="" /></span></div>
-										<div class="col-4"><span class="image fit"><img src="../images/CSFinalProject/buoyancy.jpg" alt="" /></span></div>
-										<div class="col-4"><span class="image fit"><img src="../images/CSFinalProject/viscosity.jpg" alt="" /></span></div>
-									</div>
-								</div> -->
-								
-								<h2>User Interaction</h2>
-
-								<p>something goes here</p>
-
-								<!-- <div class="box alt">
-									<div class="row gtr-uniform gtr-uniform">
-										<div class="col-4"><span class="image fit"></span></div>
-										<div class="col-4"><span class="image fit"><img src="../images/CSFinalProject/interactionHint.png" alt="" /></span></div>
-									</div>
-								</div> -->
 
 								<h2>Navigating the experience</h2>
 								
-								<p>something goes here</p>
+								<p>The actions used to allow the user to navigate the experience were, button clicks, drop down menus, and form fields. Some
+								graphical feed back was also used to indicate the difference between a safe action and a destructive action. For example as 
+								seen in the following image, buttons would higlight green if the action was safe and red if they were not.</p>
+
+								<div class="box alt">
+									<div class="row gtr-uniform gtr-uniform">
+										<div class="col-5"><span class="image fit"></span></div>
+										<div class="col-3"><span class="image fit"><img src="../images/smartHub/buttonColors.jpg" alt="" /></span></div>
+									</div>
+								</div>
+
+								<p>Navigation of the experience was kept fairly simple and stuck with actions that most users have previous experience using. 
+								This allowed for the fastest learning curve with new users. </p>
 
 								<!-- <div class="box alt">
 									<div class="row gtr-uniform gtr-uniform">
@@ -135,23 +213,6 @@
 									</div>
 								</div> -->
 
-								<p>something goes here</p>
-								
-								<!-- <div class="box alt">
-									<div class="row gtr-uniform gtr-uniform">
-										<div class="col-3"><span class="image fit"></span></div>
-										<div class="col-6"><span class="image fit"><img src="../images/CSFinalProject/teleportationArea.jpg" alt="" /></span></div>
-									</div>
-								</div> -->
-
-								<p>something goes here</p>
-								
-								<!-- <div class="box alt">
-									<div class="row gtr-uniform gtr-uniform">
-										<div class="col-4"><span class="image main"></span></div>
-										<div class="col-4"><span class="image fit"><img src="../images/CSFinalProject/orb.jpg" alt="" /></span></div>
-									</div>
-								</div> -->
 								
 								<h2>Conclusion</h2>
 
