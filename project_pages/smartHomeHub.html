@@ -46,7 +46,7 @@
 								<header class="major">
 									<!-- <span class="date">April 25, 2017</span> -->
 									<h1>CM2040 Databases Networks and the Web</h1>
-                                    <h3>Smart Home Hub for Smart Devices</h3>
+                                    <h3>Smart Hub for Smart Devices</h3>
 									<div class="box alt">
 										<div class="row gtr-uniform gtr-uniform">
 											<div class="col-2"><span class="image fit"></span></div>
@@ -62,7 +62,6 @@
 								</header>
 
 								<!-- <h2>Sorry! <br/><br/>This page is currently under construction <br/><br/></h2> -->
-														
 								<h2>The Brief</h2>
 								
 								<p>The Smart Home Hub served as the midterm project for CM2040 Databases Networks and the Web, aswell as an 
@@ -72,20 +71,73 @@
 								<ul>
 									<li>Database access</li>
 									<li>Procedurally generated web pages</li>
-									<li>Allowed user to: visualise, edit, and interact with the data in the database.</li>
+									<li>Allowed user to visualise, edit, and interact with the data in the database.</li>
 								</ul>
 
-								<p>The form the project took, was a dashboard for networking and controlling smart home devices.</p>
-
-								<!-- <div class="box alt">
-									<div class="row gtr-uniform gtr-uniform">
-										<div class="col-3"><span class="image fit"></span></div>
-										<div class="col-6"><span class="image fit"><img src="../images/CSFinalProject/interaction.jpg" alt="" /></span></div>
-									</div>
-								</div> -->
+								<p>The form the project took, was a dashboard for networking and controlling a users Internet of Things (IoT) 
+								devices, also known as smart home devices. The project focused on building the different layers required such
+								as, the database SCHEMA or design, the server and the interactive dashboard. This put including real-time 
+								control of IoT devices outside the scope of the project.</p>
 
 								<h2>The experience</h2>
 								
+								<p>The general experience of this application is similer to browsing a webpage. Users access the application 
+								through a internet browser of their choice by entering the address of the host server. This takes the user to the
+								applications homepage. From here the user can interact with the application by clicking buttons to move between
+								pages, and filling out form fields to update stored data. As this is a simulation, or proof of concept focused
+								on building the different layers in a full stack development, there is currently no way to network a real IoT 
+								device to the system. There is also no user accounts which would be required personalise and protect an individuals
+								smart devices.</p>
+
+								<h2>Building Blocks</h2>
+
+								<p>Node.js and Express was used to build a simple web server, a MySQL relational database was used to store the data to be displayed, and the webpages were populated with the required 
+									information upon page request.</p>
+									
+									<!-- <div class="box alt">
+										<div class="row gtr-uniform gtr-uniform">
+											<div class="col-2"><span class="image fit"></span></div>
+											<div class="col-8"><span class="image fit"><img src="../images/CSFinalProject/fluid.jpg" alt="" /><p>hey</p></span></div>
+										</div>
+									</div> -->
+
+								<h3>Tech Stack</h3>
+								
+								<dl>
+									<dt>Node.js</dt>
+									<dd>
+										<p>Node.js is a cross-platform, open-source server environment designed to work on most common operating systems.</p>
+									</dd>
+									<dt>Express.js</dt>
+									<dd>
+										<p>Express.js is a minimalist JavaScript framework developed to facilitate building RESTful API's with Node.js.</p>
+									</dd>
+									<dt>EJS</dt>
+									<dd>
+										<p>EJS is a templating system. HTML pages developed with EJS syntax dynamicly fill data on demand without requireing
+										special JavaScript functions or code.</p>
+									</dd>
+									<dt>MySQL</dt>
+									<dd>
+										<p>MySql is a relational database management system, using a structured query language.</p>
+									</dd>
+									<dt>HTML</dt>
+									<dd>
+										<p>HTML is the standard markup language for documents designed to be displayed in a web browser.</p>
+									</dd>
+									<dt>CSS</dt>
+									<dd>
+										<p>Style sheet language for describing the presentation of documents written in HTML.</p>
+									</dd>
+									<dt>JavaScript</dt>
+									<dd>
+										<p>Core programming language used in desiging this application.</p>
+									</dd>
+								</dl>
+								
+
+								<h2>Navigating the experience</h2>
+
 								<p>When a user first navigates to the application, they are greeted by the following home page.</p>
 								
 								<div class="box alt">
@@ -176,25 +228,10 @@
 										<div class="col-8"><span class="image fit"><img src="../images/smartHub/about.jpg" alt="" /></span></div>
 									</div>
 								</div>
-
-								<h2>Building Blocks</h2>
-							
-								<p>Node.js and Express was used to build a simple web server, a MySQL relational database was used to store the data to be displayed, and the webpages were populated with the required 
-								information upon page request.</p>
-								
-								<!-- <div class="box alt">
-									<div class="row gtr-uniform gtr-uniform">
-										<div class="col-2"><span class="image fit"></span></div>
-										<div class="col-8"><span class="image fit"><img src="../images/CSFinalProject/fluid.jpg" alt="" /><p>hey</p></span></div>
-									</div>
-								</div> -->
-								
-
-								<h2>Navigating the experience</h2>
 								
 								<p>The actions used to allow the user to navigate the experience were, button clicks, drop down menus, and form fields. Some
 								graphical feed back was also used to indicate the difference between a safe action and a destructive action. For example as 
-								seen in the following image, buttons would higlight green if the action was safe and red if they were not.</p>
+								seen in the following image, buttons would higlight green if the action was safe and red if it was not.</p>
 
 								<div class="box alt">
 									<div class="row gtr-uniform gtr-uniform">
