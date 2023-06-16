@@ -64,19 +64,19 @@
 														
 								<h2>The Brief</h2>
 								
-								<p>The goal of this project was to explore creating a simple animation that utilized lights, materials, textures, and camera position to create
-								the illusion that the animation was 3D in nature. By implementing the effect of light cast shadows, and different reflective properties of 
-								materials, the object begins to feel real. However, when we include the changing visual perspective of the camera by making it rotate around
-								the object, the illusion that we are but looking through a window at a physical object is complete. This project can be considered an example of 
-								generative artwork as it is created entirely through code, and was one of four project submitted as the capstone submission to "CM2030 Graphics 
+								<p>The aim of this project was to explore the creation of simple animations, using lighting, materials, textures and camera positions to create the 
+								illusion that the animation is three dimensional in nature. By implementing the shadow effects cast by the light and the different reflective 
+								properties of the materials, the objects begin to appear 3D. However, including the ever-changing visual perspective of a camera rotating around the 
+								object, completes the illusion that we're just looking at a physical object through a window. This project can be seen as an example of generative 
+								artwork as it was created entirely with code. This mini project was one of four which comprised the capstone submission for "CM2030 Graphics 
 								Programming".</p>
 
 								<h2>The experience</h2>
 								
-								<p>When the user navigates to this animation, they are greeted by a pulsating 3D structure that resembles a water ripple comprised of a grid of 
-								rectangles. The user can interact and change the animation slightly by moving sliders. These sliders affect the frequency or rate 
-								of change of the wave effect, the amplitude or size of the wave, and the number of cubes which create the effect. This allows the user to visualise
-								in real time the role each of these components play in creating the effect.</p>
+								<p>When a user navigates to this animation, they are greeted by a pulsating 3D structure that resembles the ripples on a pond caused by throwing a 
+								stone. A user can interact and change the animation slightly by moving sliders. These sliders affect the frequency or speed of the wave 
+								effect, the amplitude or size of the wave, and the number of cubes or detail of the effect. In this way a user can visualise in real-time the role 
+								each of these components play in creating the effect.</p>
 								
 								<div class="box alt">
 									<div class="row gtr-uniform gtr-uniform">
@@ -87,14 +87,70 @@
 
 								<h2>Building Blocks</h2>
 							
-								<p>The animation was created utilizing the p5.js JavaScript library which provided several 3D shape primitives and basic rendering elements. A series 
-								of cubes were created by running a nested for loop, to create the initial grid for the animation. To get the boxes to pulsate over time a sine function 
-								was applied to the length variable of the "box()" primitive. This works because the sine value will always fluctuate between the two extremes of -1 and 
-								1. However, this alone was not enough to create the effect, it was also required to change the sine value with a variable that changes over time. To do 
-								this, the "frameCount()" function from the p5.js library was applied. This function returns a new integer value starting at 0 and increasing every time 
-								the draw cycle completes. This begins incrementing from the point at which the application started running. The cubes then had a normal material properties 
-								applied to instruct the render in how their appearance was to respond to the direction of the light in the scene. To finalise the animation the camera 
-								was then rotated about the object to further enforce the illusion the object exists in 3D space.</p>
+								<p>The animation was created utilizing the p5.js JavaScript library which provided several 3D shape primitives and basic rendering elements. To create 
+								the grid of rechtangles, A series of cubes were created by running a nested for loop.</p>
+								
+<pre>
+	<code>
+	//generates the grid of boxes based off the boxstep (width of the box) and the number of
+	//boxes that can fit within the givin gridwidth 
+	function generateGrid()
+	{
+		for(var i = -gridSize/2; i < gridSize/2; i++)
+		{
+			for(var j = -gridSize/2; j < gridSize/2; j++)
+			{
+				//moves the position at which the box is drawn
+				translate(i*boxStep,0,j*boxStep);
+				//p5.js 3d square primitive
+				box(boxSize,boxSize,boxSize);
+			}
+		}
+	}	
+	</code>
+</pre>
+
+								<p>To get the boxes to appear as a wave, a sine function was applied to the height variable of the "box()" primitive. This works because the sine value 
+								will always fluctuate between the two extremes of -1 and 1. To make the effect more noticable and exciting, the sin function was mapped to the values of 
+								100 and 300. However, this alone was not enough to create the pulsating effect, it was also required to change the sine value with a variable that changes 
+								over time. To do this, the "frameCount()" function from the p5.js library was applied. This function returns a new integer value starting at 0 and 
+								increasing every time the draw cycle completes. This begins incrementing from the point at which the application starts running. The cubes then had a 
+								normal material properties applied to instruct the render in how their appearance was to respond to the direction of the light in the scene. This resulted
+								in the following grid function</p> 
+								
+<pre>
+	<code>
+	//generates the grid of boxes based off the boxstep (width of the box) and the number of
+	//boxes that can fit within the givin gridwidth 
+	function generateGrid()
+	{
+		for(var i = -gridSize/2; i < gridSize/2; i++)
+		{
+			for(var j = -gridSize/2; j < gridSize/2; j++)
+			{
+				//variable that changes with time
+				var distance = int(dist(i*boxStep,j*boxStep,0,0))+frameCount;
+				
+				//maps the sin function to the values of 100 and 300
+				length = map(sin(distance),-1,1,100,300);
+	
+				push();
+				normalMaterial();
+				stroke(0);
+				strokeWeight(2);
+				//moves the position at which the box is drawn
+				translate(i*boxStep,0,j*boxStep);
+				//p5.js 3d square primitive
+				box(boxSize,boxSize+length,boxSize);
+				pop();
+	
+			}
+		}
+	}
+	</code>
+</pre>
+								
+								<p>To finalise the animation the camera was then rotated about the object to further enforce the illusion the object exists in 3D space.</p>
 								
 								<h2>User Interaction</h2>
 
@@ -105,10 +161,10 @@
 									</div>
 								</div>
 								
-								<p>Sliders were selected as the optimum choice for interacting with this animation as it allowed for the smooth transition of element changes. However,
-								the nature of the animation requires a fair amount of compute power because it is being redrawn constantly. This potentially creates issues with older 
-								and or less powerful computers which can cause slowdowns of a users machine and frustrations. In this situation sliders may not be ideal as it is easy 
-								to transition to the more complicated variations of the animation.</p>
+								<p>Sliders were chosen as the best option for interacting with this animation as it allowed most users to instintivly understand how to interact with it. However, the 
+								nature of the animation requires good computing power as it is constantly be redrawn. This can cause problems with older and/or less powerful computers. Especially,
+								as the complexity of the animation increases with denser grids of rechtangles. The increased complexity can cause the machine to slow down or hang ruining the animations
+								effects. For this reason sliders may be ineffective, as it is very easy to transisition to the more complicated variations of the animation.</p>
 								
 								<h2>Conclusion</h2>
 
