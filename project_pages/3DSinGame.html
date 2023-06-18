@@ -46,7 +46,7 @@
 								<header class="major">
 									<!-- <span class="date">April 25, 2017</span> -->
 									<h1>CM2030 Graphics Programming</h1>
-                                    <h3>3D Sine Games Generative Artwork</h3>
+                                    <h3>3D Sine Games: Generative Artwork</h3>
 									<div class="box alt">
 										<div class="row gtr-uniform gtr-uniform">
 											<div class="col-2"><span class="image fit"></span></div>
@@ -64,18 +64,18 @@
 														
 								<h2>The Brief</h2>
 								
-								<p>The aim of this project was to explore the creation of simple animations, using lighting, materials, textures and camera positions to create the 
-								illusion that the animation is three dimensional in nature. By implementing the shadow effects cast by the light and the different reflective 
-								properties of the materials, the objects begin to appear 3D. However, including the ever-changing visual perspective of a camera rotating around the 
-								object, completes the illusion that we're just looking at a physical object through a window. This project can be seen as an example of generative 
-								artwork as it was created entirely with code. This mini project was one of four which comprised the capstone submission for "CM2030 Graphics 
+								<p>The aim of this project was to explore the creation of simple 3D animations. Using lighting, materials, textures and camera positions, it was
+								possible to create the illusion that an animation was three dimensional in nature. By implementing the shadow effects cast by directional light, and 
+								the responses of different reflective properties of materials, begins to create the illusion of 3D. However, it was not until including the 
+								ever-changing visual perspective of a camera rotating around the object, that the illusion is complete. This project can be seen as an example of 
+								generative artwork, as it was created entirely with code. This mini project was one of four which comprised the capstone submission for "CM2030 Graphics 
 								Programming".</p>
 
 								<h2>The experience</h2>
 								
-								<p>When a user navigates to this animation, they are greeted by a pulsating 3D structure that resembles the ripples on a pond caused by throwing a 
+								<p>When a user navigates to this animation, they are greeted by a pulsating 3D structure, that resembles the ripples on a pond caused by throwing a 
 								stone. A user can interact and change the animation slightly by moving sliders. These sliders affect the frequency or speed of the wave 
-								effect, the amplitude or size of the wave, and the number of cubes or detail of the effect. In this way a user can visualise in real-time the role 
+								effect, the amplitude or size of the wave, and the number of cubes or detail of the effect. In this way a user can visualise in real-time, the role 
 								each of these components play in creating the effect.</p>
 								
 								<div class="box alt">
@@ -87,8 +87,8 @@
 
 								<h2>Building Blocks</h2>
 							
-								<p>The animation was created utilizing the p5.js JavaScript library which provided several 3D shape primitives and basic rendering elements. To create 
-								the grid of rechtangles, A series of cubes were created by running a nested for loop.</p>
+								<p>The animation was created utilizing the p5.js JavaScript library, which provided several 3D shape primitives and basic rendering elements. To create 
+								the grid of rechtangles, a series of cubes were created by running a nested <strong>for loop</strong>.</p>
 								
 <pre>
 	<code>
@@ -111,12 +111,14 @@
 </pre>
 
 								<p>To get the boxes to appear as a wave, a sine function was applied to the height variable of the "box()" primitive. This works because the sine value 
-								will always fluctuate between the two extremes of -1 and 1. To make the effect more noticable and exciting, the sin function was mapped to the values of 
-								100 and 300. However, this alone was not enough to create the pulsating effect, it was also required to change the sine value with a variable that changes 
-								over time. To do this, the "frameCount()" function from the p5.js library was applied. This function returns a new integer value starting at 0 and 
-								increasing every time the draw cycle completes. This begins incrementing from the point at which the application starts running. The cubes then had a 
-								normal material properties applied to instruct the render in how their appearance was to respond to the direction of the light in the scene. This resulted
-								in the following grid function</p> 
+								will always fluctuate between the two extremes of -1 and 1. To make the effect more noticable and exciting, the sine function was mapped to the values of 
+								100 and 300. However, this alone was not enough to create the pulsating effect. It was also required to change the sine value with a variable that changes 
+								over time. To do this, the "frameCount()" function from the p5.js library was applied. This function returns a new integer value starting at zero and 
+								increasing every time the draw cycle completes. This begins incrementing from the point at which the application starts running. The ever increasing value 
+								causes the sine function to fluctuate over time. </p>
+
+								<p>To achieve the material reflextive properties, a normal material was applied to the cubes as a texture. This was to instruct the render in how their 
+								appearance was to respond to the direction of the light in the scene. This resulted in the following grid function.</p> 
 								
 <pre>
 	<code>
@@ -150,7 +152,7 @@
 	</code>
 </pre>
 								
-								<p>To finalise the animation the camera was then rotated about the object to further enforce the illusion the object exists in 3D space.</p>
+								<p>To finalise the animation, the camera was then rotated about the object, to further enforce the illusion that the object existed in 3D space.</p>
 
 								<h3>Tech Stack</h3>
 								<dl>
@@ -169,10 +171,10 @@
 									</div>
 								</div>
 								
-								<p>Sliders were chosen as the best option for interacting with this animation as it allowed most users to instintivly understand how to interact with it. However, the 
-								nature of the animation requires good computing power as it is constantly be redrawn. This can cause problems with older and/or less powerful computers. Especially,
-								as the complexity of the animation increases with denser grids of rechtangles. The increased complexity can cause the machine to slow down or hang ruining the animations
-								effects. For this reason sliders may be ineffective, as it is very easy to transisition to the more complicated variations of the animation.</p>
+								<p>Sliders were chosen as the best option for interacting with this animation, as it allowed most users to instinctively understand how to interact with it. However, the 
+									nature of the animation requires good computing power as it is constantly be redrawn. This can cause problems with older and/or less powerful computers. Especially,
+									as the complexity of the animation increases with denser grids of rectangles. This increased complexity can cause the machine to slow down or hang, ruining the animations
+									effects. For this reason, sliders may be ineffective, as it is very easy to transition to the more complicated variations of the animation.</p>
 								
 								<h2>Conclusion</h2>
 
