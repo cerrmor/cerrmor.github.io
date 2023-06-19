@@ -79,31 +79,56 @@
 
 								<h2>Building Blocks</h2>
 							
-								<p>There were four main components essential for this game to function:
+								<p>There were four main components developed which were essential for this game to function:
 									<ol>
 										<li>Collision detection</li>
 										<li>Bullet management</li>
 										<li>Asteroid management</li>
 										<li>Ship management</li>
-									</ol> 
-								Each of these components was established as its own class element to keep the code clean and modular. The asteroid game 
-								elements were spawned randomly and propelled towards the planet by applying a small gravitational force to add acceleration. When a 
-								users bullet collides with an asteroid, or leaves the screen, the bullet is removed from the array that stores its information 
-								this also happens for the asteroid. This system allows the game to remain relatively small and efficient.</p>
+									</ol>
+
+								The first component developed was the spaceship system class. This system was essential as it created the playable charaicter for any
+								user interacting with the application. The next system developed was the bullet system class. This system was necessary for the user 
+								to be able to destroy approaching asteroids. The final core game element developed was the asteroid system class. This system controlled
+								where asteroids would spawn and how fast they should move. The three systems together, produced a fantastic visual effect. However, an 
+								additional component was required for this application to function as a game. Without collision detection, there was no way for the 
+								application to determine when the game should end or when to destroy an asteroid. The following function was produced to solve this  
+								issue of collision detection.
+
+<pre>
+	<code>
+		//helper function checking if there's collision between object A and object B
+		function isInside(locA, sizeA, locB, sizeB){
+			if(dist(locA.x, locA.y, locB.x, locB.y) < ((sizeA/2)+(sizeB/2))) 
+			{
+				return true;
+			}
+			else 
+			{
+				return false;
+			}
+		}
+	</code>
+</pre>
+
+								when ever the function returned true a collsion had been detected. This information was then used, to call secondary functions which 
+								controlled responces within the systems. For instance, a bullet and asteroid disapearing upon impact, or the game ending when the ship
+								crashed into an asteroid or the planet.</p>
 								
 								<h3>Tech Stack</h3>
 								<dl>
 									<dt>p5.js</dt>
 									<dd>
-										<p></p>
+										<p>JavaScript library for creative coding, with a focus on making coding accessible and inclusive for artists, designers, educators, beginners,
+										and anyone else.</p>
 									</dd>
 									<dt>HTML 5</dt>
 									<dd>
-										<p></p>
+										<p>HTML 5 is the standard markup language for documents designed to be displayed in a web browser.</p>
 									</dd>
 									<dt>CSS 3</dt>
 									<dd>
-										<p></p>
+										<p>Style sheet language for describing the presentation of documents written in HTML.</p>
 									</dd>
 								</dl>
 
