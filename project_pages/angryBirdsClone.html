@@ -95,28 +95,63 @@
 
 								<h2>Building Blocks</h2>
 							
-								<p>The web application was built with JavaScript and basic HTML code to create a code sample that runs in the browser. <strong>Matter.js</strong> which is a 2D physics
-								engine built for the web, was used in conjunction with <strong>p5.js</strong>, a JavaScript library focused on teaching coding. These librarys were used to implement the
-								objects, and the force responces to object collisons. Matter.js included code for connecting objects to eachother within the constraint of a world. This allowed matter.js
-								to understand how objects were suposed to move relitive to all other objects, and apply properties such as mass and friction.</p>
+								<p>This web application relied on two main JavaScript libraries to construct the functionality of the game. The two libraries were:
+									<ul>
+										<li><strong>matter.js</strong></li>
+										<li><strong>p5.js</strong></li>
+									</ul>
+								P5.js was used to create the canvas, where all objects would be drawn. It also handled the processing of the animation environment. Matter.js 
+								was the physics engine that handled interactions between objects, and the properties of the world such as, gravity and friction.</p>
+								<!-- <pre><code>engine = Engine.create();  // create a matter.js engine</code></pre> -->
+								<p>For objects within the game to easily interact with each other, an instance of the physics engine was required to be instantiated. 
+								
+								<pre><code>engine = Engine.create();  // create a matter.js engine</code></pre>
+								
+								This became the framework for the world properties. It was then required to add all objects to the world before drawing them too the 
+                                screen. This allowed the engine to understand the shape of the objects, and the expected responses required from collisions.
+								
+<pre>
+	<code>
+		//creates a bird object and adds it to the world
+		function setupBird()
+		{
+			var bird = Bodies.circle(mouseX, mouseY, 20, {friction: 0,
+				restitution: 0.95 });
+			Matter.Body.setMass(bird, bird.mass*10);
+			World.add(engine.world, [bird]);
+			birds.push(bird);
+		}
+	</code>
+</pre>
+
+								Because matter.js handled applying forces such as, acceleration, friction, gravity, and collisions. Construction of game mechanics 
+                                was streamlined, as separate classes describing each game object was no longer required. It was still necessary to construct classes
+                                that controlled game play elements, such as the <strong>timer element</strong> and <strong>win/loss</strong> rules but by comparison 
+                                these were far less involved.</p>
+
+								<h3>Layout/Styling</h3>
+
+								<p>As this application was primarily a web-based experience, the layout and styling of page elements such as, the canvas; was controlled with 
+									<strong>CSS 3</strong> styling and <strong>HTML 5</strong> layout tags. This allows for a common experience amongst most users of the application.</p>
 								
 								<h3>Tech Stack</h3>
 								<dl>
 									<dt>p5.js</dt>
 									<dd>
-										<p></p>
+										<p>JavaScript library for creative coding, with a focus on making coding accessible and inclusive for artists, designers, educators, beginners,
+										and anyone else.</p>
 									</dd>
 									<dt>matter.js</dt>
 									<dd>
-										<p></p>
+										<p>JavaScript 2D rigid body physics engine for the web</p>
 									</dd>
 									<dt>HTML 5</dt>
 									<dd>
-										<p></p>
+										<p>HTML 5 is the standard markup language for documents designed to be displayed in a web browser.</p>
 									</dd>
 									<dt>CSS 3</dt>
 									<dd>
-										<p></p>
+										<p>Style sheet language for describing the presentation of documents written in HTML.</p>
 									</dd>
 								</dl>
 
