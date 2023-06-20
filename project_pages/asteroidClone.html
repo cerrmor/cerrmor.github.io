@@ -73,8 +73,8 @@
 
 								<h2>The experience</h2>
 								
-								<p>The users goal in the Asteroids clone is to survive as long as possible. The user controls a ship and tries to destroy all the 
-								falling asteroids before they hit the planet. Control of the ships movent is done by pressing the directional arrow keys, and firing 
+								<p>The user's goal in the Asteroids clone is to survive as long as possible. The user controls a ship and tries to destroy all the 
+								falling asteroids before they hit the planet. Control of the ship's movement is done by pressing the directional arrow keys, and firing 
 								the weapon systems by pressing spacebar. If the ship touches an asteroid or the planet surface, the game ends and must be restarted.</p>	
 
 								<h2>Building Blocks</h2>
@@ -87,13 +87,14 @@
 										<li>Ship management</li>
 									</ol>
 
-								The first component developed was the spaceship system class. This system was essential as it created the playable charaicter for any
+								The first component developed was the spaceship system class. This system was essential as it created the playable character for any
 								user interacting with the application. The next system developed was the bullet system class. This system was necessary for the user 
 								to be able to destroy approaching asteroids. The final core game element developed was the asteroid system class. This system controlled
 								where asteroids would spawn and how fast they should move. The three systems together, produced a fantastic visual effect. However, an 
 								additional component was required for this application to function as a game. Without collision detection, there was no way for the 
 								application to determine when the game should end or when to destroy an asteroid. The following function was produced to solve this  
 								issue of collision detection.
+	
 
 <pre>
 	<code>
@@ -111,9 +112,90 @@
 	</code>
 </pre>
 
-								when ever the function returned true a collsion had been detected. This information was then used, to call secondary functions which 
-								controlled responces within the systems. For instance, a bullet and asteroid disapearing upon impact, or the game ending when the ship
-								crashed into an asteroid or the planet.</p>
+								when ever the function returned true a collision had been detected. This information was then used, to call secondary functions which 
+                                controlled responses within the systems. For instance, a bullet and asteroid disappearing upon impact, or the game ending when the ship
+                                crashed into an asteroid or the planet.</p>
+
+								<p>In addition to collisions, movement of asteroids and the players ship was fundamental to the game overall. For the player to have
+								the sensation that the ship was realistically travelling in space, force vectors were applied in an additive fashion to the ship. This meant
+								that the ship accelerated from zero to max speed and conversely decelerated at a steady pace. It also meant that the ship maintained speed 
+								and direction as if the ship was truly exposed to the lack of friction in space.
+	 
+								
+<pre>
+	<code>
+		//addativly applys the current force vectors to the ship
+		move(){
+			this.velocity.add(this.acceleration);
+			this.location.add(this.velocity);
+			this.acceleration.mult(0);
+			this.velocity.limit(this.maxVelocity);
+		}
+		//called to apply the new acceleration added
+		applyForce(f){
+			this.acceleration.add(f);
+		}
+		//applys the acceleration vector in the direction pressed by the player
+		interaction(){
+			if (keyIsDown(LEFT_ARROW)){
+			  this.applyForce(createVector(-0.1, 0));
+			}
+			if (keyIsDown(RIGHT_ARROW)){
+			  this.applyForce(createVector(0.1, 0));
+			}
+			if (keyIsDown(UP_ARROW)){
+			  this.applyForce(createVector(0, -0.1));
+			}
+			if (keyIsDown(DOWN_ARROW)){
+			  this.applyForce(createVector(0, 0.1));
+			}
+		}
+	</code>
+</pre>
+
+								The only exception to this was, if the ship enters the atmosphere of the planet it was protecting. The ship was then drawn to the 
+                                planets surface and slowed down as gravity and friction were now a factor to contend with.
+
+
+<pre>
+	<code>
+		//applys the planets gravity and friction to the ship
+		setNearEarth(){
+			this.gravity = createVector(0,0.05);
+			this.acceleration.add(this.gravity);
+		
+			//applys friction as a subtractive force of the ships current velocity
+			this.friction = this.velocity.copy();
+			this.friction.mult(-1);
+			this.friction.normalize();
+			this.friction.mult(0.03);
+			this.acceleration.add(this.friction);
+			
+		}
+	</code>
+</pre>
+								
+								Applying force vectors was not only reserved for the player's ship. Force vectors were also used on the asteroids to vary the speed at which 
+                                the asteroids travelled towards the planet. Larger asteroids had greater gravitational pull and so travel faster.</p>
+							
+<pre>
+	<code>
+		//function that calculates effect of gravity on each asteroid and accelerates it
+		calcGravity(centerOfMass)
+		{
+			//iterates the array of asteroids
+			for (var i=0; i < this.locations.length; i++)
+			{
+				var gravity = p5.Vector.sub(centerOfMass, this.locations[i]);
+				gravity.normalize();
+				gravity.mult(.001);
+				this.applyForce(gravity);
+			}
+		}
+	</code>
+</pre>	
+
+								<p>The subtle additions that applied force vectors created, were far more compelling for generating motion, then other forms of motion generation.</p>
 								
 								<h3>Tech Stack</h3>
 								<dl>
@@ -141,7 +223,7 @@
 								<h2>Conclusion</h2>
 
 								<p>This application was effective at showcasing the value of applying physical forces to game elements and animations. It made 
-								for compelling game play by adding interesting challenges, despite the simplicity of the game. This project was the second of 
+								for compelling game play by adding interesting challenges, despite the simplicity of the games rules. This project was the second of 
 								four worked on as the midterm submission for the mandatory course Graphics Programming.</p>
 		
 							</section>
