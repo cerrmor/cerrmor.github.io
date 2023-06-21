@@ -91,9 +91,122 @@
 
 								<h2>Building Blocks</h2>
 
-								<h3>#********#</h3>
-								<p>Node.js and Express was used to build a simple web server, a MySQL relational database was used to store the data to be displayed, and the webpages were populated with the required 
-									information upon page request.</p>
+								<p>The challenges of producing a full stack development application was trully interesting and unique. This type of 
+								development required considering engineering questions suchs as:</p>
+								<ul>
+									<li><strong>Front End</strong>
+										<ul>
+											<li>How to build responsive layouts?</li>
+											<li>How to display the information?</li>
+											<li>How to structure and keep the pages user friendly?</li>
+										</ul>
+									</li>
+									<li><strong>Backend</strong>
+										<ul>
+											<li>How to handel API requests for storing/retrieving data?</li>
+											<li>How to route pages?</li>
+										</ul>
+									</li>
+									<li><strong>Database</strong>
+										<ul>
+											<li>How to structure the data efficiently?</li>
+											<li>How to validate entered data and database security?</li>
+											<li>How to handel multiple users?</li>
+										</ul>
+									</li>
+								</ul>
+
+								<p>Some basic requirements of the application such as, the language, database, framework, server environment, and 
+								templating system used, were dictated by the project outline. This simplified the design process somewhat, by 
+								eliminating thoes questions from the design process. That being said, many of the fundamental decision shuch as 
+								database structure remained. From the project outline, Node.js and Express was used to build a simple web server, 
+								while EJS templates was used to dynamically build the webpages with data from the MySQL relational database which was 
+								used to manage the data. This resulted in the basic local server setup as seen here.</p>
+<pre>
+	<code>
+		const express = require("express");
+		const bodyParser = require("body-parser");
+		const mysql = require('mysql');
+
+		const app = express();
+		const port = 8089;
+		const db = mysql.createConnection({
+			host: 'localhost',
+			user: 'root',//your MySQL username
+			password: '',//your MySQL password
+			database: 'devices'
+		});
+
+		db.connect((err) => {
+			if (err) {
+				throw err;
+			}
+			console.log("Connected to database");
+		});
+		global.db = db;
+
+		//handles http POST requests
+		app.use(bodyParser.urlencoded({ extended: true }));
+		//serves the css style sheet with page requests
+		app.use(express.static(__dirname + '/public'));
+
+		//includes all middleware code for handeling querys and page requests
+		require("./routes/main")(app);
+
+
+		app.set("views", __dirname + "/views");
+		app.set("view engin", "ejs");
+		app.engine("html", require("ejs").renderFile);
+		app.listen(port, () => console.log(`Mid Term app listening on port ${port}!`));
+	</code>
+</pre>
+								<p>Initial development work began by designing and building the basic layout and structure of the database to be used. By 
+								considering the project requirements of the application such as, a dashboard for controlling smart home devices, and the 
+								required pages to be developed:</p>
+								
+								<ul>
+									<li>Home Page</li>
+									<li>About Page</li>
+									<li>Add Device Page</li>
+									<li>Show Device Status Page</li>
+									<li>Update Device Status Page</li>
+									<li>Delete Device Page</li>
+								</ul>
+								
+								<p>It was possiable to determine that a three table database would serve the imediate scope of the project. The resulting 
+								structure and layout of the database developed, also known as a SCHEMA, was as follows:</p>
+
+								<div class="box alt">
+									<div class="row gtr-uniform gtr-uniform">
+										<div class="col-2"><span class="image fit"></span></div>
+										<div class="col-8"><span class="image fit"><img src="../images/smartHub/devicesDatabaseSCHEMA.jpg" alt="" /></span></div>
+									</div>
+								</div>
+
+								<p>After establishing the design of the required database and building a <strong>MySQL</strong> representation. Design of the 
+								four main application pages began. These pages were:</p>
+								
+								<ol>
+									<li>Home Page</li>
+									<li>About Page</li>
+									<li>Add Device Page</li>
+									<li>Show Device Status Page</li>
+								</ol>
+
+								<p>The first two pages were required to include basic application information and navigation links to the other pages. As such, 
+								these pages were fairly simple to design. However, the <strong>Add Device Page</strong> required considering how to access and 
+								update information held within the database. By including a MySQL query <code>SELECT * FROM deviceList</code> in the middleware 
+								code that executed on page load, it was possible to dynamically load the available options for adding a new device. This data was 
+								then used to populate available options on the page by the EJS render. A second query 
+								<code>SELECT * FROM deviceList INNER JOIN deviceSettings ON deviceList.id = deviceSettings.deviceID</code> was sent when the user
+								selected a device to add. The returned data built a new page that displayed associated available device settings. However, this 
+								was still only accessing data from the database to be displayed. In order to update the database, a POST request was required.
+								The POST request sent the newly created	device record along with this SQL query which told the database to store the new information
+								in the user devices table.</p>
+								<pre><code>INSERT INTO userDevices (deviceID, settingID, power, open, locked, volume, temperature, channel) VALUES (?,?,?,?,?,?,?,?)</code></pre>
+								
+								<p>The same process was used to also dynamically build the <strong>Show Device Status Page</strong> as well as updating and deleting 
+								devices.</p>
 									
 									<!-- <div class="box alt">
 										<div class="row gtr-uniform gtr-uniform">
@@ -255,7 +368,17 @@
 								
 								<h2>Conclusion</h2>
 
-								<p>something goes here</p>
+								<p>Building a full stack application created some interesting challenges that needed to be considered seporatly as well as a
+								part of a complete design. That being said, by utilizing tools developed to stream line the process such as, the EJS templating 
+								system for building dynamic webpages, and the express.js framework for building a server, made solving these challenges relitivly 
+								easy. While this application served as great example of a simple full stack development, it did lack some serious considerations
+								for an application of this nature suchs as:
+								<ul>
+									<li>Form field validation to protect against SQL injection attacks.</li>
+									<li>Dealing with multiple user accounts and user authorization validation.</li>
+								</ul>
+								In the future these would be additional considerations follow up on. This project served as the midterm project submission for 
+								CM2040 Databases Networks and the Web.</p>
 
 							</section>
 
