@@ -72,52 +72,192 @@
 														
 								<h2>The Brief</h2>
 								
-								<p>something goes here</p>
-
-								<!-- <div class="box alt">
-									<div class="row gtr-uniform gtr-uniform">
-										<div class="col-3"><span class="image fit"></span></div>
-										<div class="col-6"><span class="image fit"><img src="../images/CSFinalProject/interaction.jpg" alt="" /></span></div>
-									</div>
-								</div> -->
+								<p>The Instagram filter application, replicated an applied image visual effect similer to the one produced for Instagram 
+								under the name early bird filter. This is why the application was named the way it was. This application was a continued 
+								exploration into the field of digital image processing. This project built on knowledge gained from the previous foray 
+								into the manipulation of image pixels, established by the average face project. However, as opposed to the average face 
+								project, where the purpose was to create a new image from a set of images. This project was about using computer algorithms 
+								to enhance an image with desirable effects. More specifically effects such as: 
+								
+								<ul>
+									<li>Inverting the images colors.</li>
+									<li>Changing an image to grayscale.</li>
+									<li>Applying focus to an image element by applying blur to surrounding elements.</li>
+								</ul>
+								
+								Within the field of image processing, these effects listed are a very small subset of possible effects but, are a good 
+                                starting point for learning about this subfield of digital signal processing.</p>
 
 								<h2>The experience</h2>
 								
-								<p>something goes here</p>
+								<p>When the user navigates to this application, they are greeted by two images and a set of instructions on how to use the 
+								application.</p>
 								
-								<!-- <div class="box alt">
+								<div class="box alt">
 									<div class="row gtr-uniform gtr-uniform">
-										<div class="col-1"><span class="image fit"></span></div>
-										<div class="col-5"><span class="image fit"><img src="../images/CSFinalProject/pythagoras.jpg" alt="" /></span></div>
-										<div class="col-5"><span class="image fit"><img src="../images/CSFinalProject/heron.jpg" alt="" /></span></div>
+										<div class="col-3"><span class="image fit"></span></div>
+										<div class="col-6"><span class="image fit"><img src="../images/instagramFil/experienceDisplay.jpg" alt="" /></span></div>
 									</div>
-								</div> -->
-								
+								</div>
 
-								<h2>Building Blocks: Physics Engine</h2>
+								<p>The two images are the same image, with the exception that the image on the right has been processed through 
+								a series of filters; the application gives the user the control to select which filters are applied to the final 
+								image displayed.</p>								
+
+								<h2>Building Blocks</h2>
 							
-								<p>something goes here</p>
+								<p>The early bird filter was constructed by building several simpler filter algorithims. These filters were then stacked
+								in series, where the output of one filter, fed the input of the next producing this final outcome.</p>
 								
-								<!-- <div class="box alt">
+								<div class="box alt">
 									<div class="row gtr-uniform gtr-uniform">
+										<div class="col-3"><span class="image fit"></span></div>
+										<div class="col-6"><span class="image fit"><img src="../images/instagramFil/earlyB.jpg" alt="" /></span></div>
+									</div>
+								</div>
+
+								<p>Many profeshional image processing filters are built in the same way to arrive at the expected outcome. The filters 
+								that built the early bird filter were:
+								
+								<ul>
+									<li>Sepia Filter</li>
+									<li>Dark Corners Filter</li>
+									<li>Radial Blur Filter</li>
+									<li>Border Filter</li>
+								</ul> 
+								
+								The first filter constructed was the "Sepia Filter". This algorithim took the origional image as input and then processed 
+								that image pixel by pixel, applying a color transform to each color channel.</p>
+<pre>
+	<code>
+		//color transform
+		var newRed = (r * .393) + (g *.769) + (b * .189)
+		var newGreen = (r * .349) + (g *.686) + (b * .168)
+		var newBlue = (r * .272) + (g *.534) + (b * .131)
+	</code>
+</pre>
+
+								<p>In many cases, there is a chance that this could produce a value outside the max value of 255. This would normally need 
+								to be accounted for by clamping the value to the range of "0 - 255". However, the pixel array in p5.js is already a clamped 
+								array and as such is an uneccessary step. This filter produced the following effect.</p>
+								
+								<div class="box alt" style="margin-left: 0.9%;">
+									<div class="row gtr-uniform gtr-uniform">
+										<!-- <div class="col-4"><span class="image main"></span></div> -->
 										<div class="col-2"><span class="image fit"></span></div>
-										<div class="col-8"><span class="image fit"><img src="../images/CSFinalProject/fluid.jpg" alt="" /><p>hey</p></span></div>
+										<div class="col-4" style="background-color: lightgray; border-radius: 10px; padding:30px; margin-right: 10px;">
+											<span class="image fit">
+												<img src="../images/instagramFil/husky.jpg" alt="" />
+												<p>Origional Image --></p>
+											</span>
+										</div>
+										<div class="col-4" style="background-color: lightgray; border-radius: 10px; padding:30px">
+											<span class="image fit">
+												<img src="../images/instagramFil/sepiea.jpg" alt="" />
+												<p>Sepia Filter</p>
+											</span>
+										</div>
 									</div>
-								</div> -->
-								
-								
-								<h2>Simulation layout</h2>
+								</div>
 
-                                <p>something goes here</p>
-
-								<!-- <div class="box alt">
+								<p>The next filter was the "Dark Corners Filter". This filter also known as vignetting, when combined with the previous 
+								filter. Gave the impression that the image it was applied to was older than it truly was. To create this effect, the 
+								luminosity/brightness of each pixel was scaled between 0 and 100%, at a extending distence from the center of the image.
+								Pixels within a 300 pixel radius of the image center, were left at 100% luminosity. After this point and up to the 
+								450 pixel range, the luminosity was scaled from 100% to 40% based on how far from the center it was. Finally all pixels 
+								past the maximum point of 450 pixels were scaled from 40% to 0% luminosity resulting in a image that fades from bright 
+								to dark moving from the center. This can be seen in the following image:</p>
+								
+								<div class="box alt" style="margin-left: 0.9%;">
 									<div class="row gtr-uniform gtr-uniform">
-										<div class="col-4"><span class="image fit"><img src="../images/CSFinalProject/museum.jpg" alt="" /></span></div>
-										<div class="col-4"><span class="image fit"><img src="../images/CSFinalProject/buoyancy.jpg" alt="" /></span></div>
-										<div class="col-4"><span class="image fit"><img src="../images/CSFinalProject/viscosity.jpg" alt="" /></span></div>
+										<!-- <div class="col-4"><span class="image main"></span></div> -->
+										<div class="col-4"><span class="image fit"></span></div>
+										<div class="col-4" style="background-color: lightgray; border-radius: 10px; padding:30px">
+											<span class="image fit">
+												<img src="../images/instagramFil/2filters.jpg" alt="" />
+												<p>Sepia Filter + Dark Corners Filter</p>
+											</span>
+										</div>
 									</div>
-								</div> -->
+								</div>
+
+								<p>The filter that came next was the "Radial Blur Filter". This filter was more dynamic then the other filters produced, 
+								as the user could select where the filter was applied in the image. The effect of the filter produced, a subtal bluring 
+								of the image that slowly increase the amount of bluring as it moved farther from the center of where the filter was applied.
+								To achieve this effect, the image was passed to algorithim that applied a convolution matrix to the images pixels and
+								returned the new values.</p>
+
+<pre>
+	<code>
+		//applies the convolution matrix to the image pixels
+		function convolution(x, y, matrix, matrixSize, img)
+		{
+			var totalRed = 0;
+			var totalGreen = 0;
+			var totalBlue = 0;
+
+			var offset = floor(matrixSize/2);
+
+			for(var i = 0; i < matrixSize; i++)
+			{
+				for(var j = 0; j < matrixSize; j++)
+				{
+					var xLoc = x + i - offset
+					var yLoc = y + j - offset
+
+					var index = ((img.width * yLoc) + xLoc) * 4;
+
+					index = constrain(index, 0, img.pixels.length - 1);
+
+					totalRed += img.pixels[index + 0] * matrix[i][j];
+					totalGreen += img.pixels[index + 1] * matrix[i][j];
+					totalBlue += img.pixels[index + 2] * matrix[i][j];
+					
+				}
+			}
+			return [totalRed,totalGreen,totalBlue];
+		}
+	</code>
+</pre>
+								<p>However, this algorithim alone caused the whole image to be blured at full effect. In order to produce a gradual bluring 
+								effect, it was required to vary how much of the new value was applied to the image dynamically. Furthermore, to allow the user
+								to select the origin point of the blur, this dynamic variable needed to be calculated from the point at which the user had clicked. 
+								The dynamic value used, was calculated by initially calculating the distance from the mouses location, and the location of the 
+								pixel to be updated. This value was then mapped to a value between 0 and 1 based off of the distance moving away from the point 
+								of the initial click. This resulted in the following output:
+								</p>
+
+								<div class="box alt" style="margin-left: 0.9%;">
+									<div class="row gtr-uniform gtr-uniform" >
+										<!-- <div class="col-4"><span class="image main"></span></div> -->
+										<div class="col-4"><span class="image fit"></span></div>
+										<div class="col-4" style="background-color: lightgray; border-radius: 10px; padding:30px">
+											<span class="image fit">
+												<img src="../images/instagramFil/3filters.jpg" alt="" />
+												<p>Sepia Filter + Dark Corners Filter + Radial Blur</p>
+											</span>
+										</div>
+									</div>
+								</div>
+
+								<p>The final filter was the "Border Filter". This filter mainly added the effect of making the image appear to be a polliroid.
+								This was done by drawing two white hollow rectangle around the border of the image. While this is a very simple step in building 
+								the overall effect it was important because it brought the whole image together. As is clearly seen in the next image.</p>
 								
+								<div class="box alt" style="margin-left: 0.9%;">
+									<div class="row gtr-uniform gtr-uniform">
+										<!-- <div class="col-4"><span class="image main"></span></div> -->
+										<div class="col-4"><span class="image fit"></span></div>
+										<div class="col-4" style="background-color: lightgray; border-radius: 10px; padding:30px">
+											<span class="image fit">
+												<img src="../images/instagramFil/earlyB.jpg" alt="" />
+												<h3>Early Bird Filter</h3>
+												<p>Sepia Filter + Dark Corners Filter + Radial Blur + Border Filter</p>
+											</span>
+										</div>
+									</div>
+								</div>
+
 								<h3>Tech Stack</h3>
 								<dl>
 									<dt>JavaScript</dt>
@@ -145,47 +285,62 @@
 
 								<h2>User Interaction</h2>
 
-								<p>something goes here</p>
-
-								<!-- <div class="box alt">
-									<div class="row gtr-uniform gtr-uniform">
-										<div class="col-4"><span class="image fit"></span></div>
-										<div class="col-4"><span class="image fit"><img src="../images/CSFinalProject/interactionHint.png" alt="" /></span></div>
-									</div>
-								</div> -->
-
-								<h2>Navigating the experience</h2>
+								<p>A user can interact with this application by pressing a series of keys on the keyboard. Each designated key invokes a 
+								different filter algorithms to be applied to the second image.</p>
 								
-								<p>something goes here</p>
-
-								<!-- <div class="box alt">
-									<div class="row gtr-uniform gtr-uniform">
-										<div class="col-3"><span class="image fit"></span></div>
-										<div class="col-6"><span class="image fit"><img src="../images/CSFinalProject/teleportation.jpg" alt="" /></span></div>
+								<div class="box alt" style="margin-left: 0.9%;">
+									<div class="row gtr-uniform gtr-uniform" style="background-color: lightgray; border-radius: 10px; padding-right:30px">
+										<!-- <div class="col-4"><span class="image main"></span></div> -->
+										<div class="col-4">
+											<span class="image fit">
+												<img src="../images/instagramFil/sepiea.jpg" alt="" />
+												<p>Sepia Filter</p>
+											</span>
+										</div>
+										<div class="col-4">
+											<span class="image fit">
+												<img src="../images/instagramFil/borders.jpg" alt="" />
+												<p>Image Border Filter</p>
+											</span>
+										</div>
+										<div class="col-4">
+											<span class="image fit">
+												<img src="../images/instagramFil/darkC.jpg" alt="" />
+												<p>Dark Image Corners Filter</p>
+											</span>
+										</div>
+										<div class="col-4">
+											<span class="image fit">
+												<img src="../images/instagramFil/radialB.jpg" alt="" />
+												<p>Radial Blur Filter</p>
+											</span>
+										</div>
+										<div class="col-4">
+											<span class="image fit">
+												<img src="../images/instagramFil/earlyB.jpg" alt="" />
+												<p>Early bird Filter</p>
+											</span>
+										</div>
 									</div>
 								</div>
-
-								<p>something goes here</p>
 								
+								<p>Certain filters such as, the early bird and the radial blur filter also allow the user to click portions of the image 
+								the user wants to be in focus with the mouse. The user is instructed on how to carry out these actions, by a instruction 
+								menu at the bottom of the application as shown in the following image.</p>
+
 								<div class="box alt">
 									<div class="row gtr-uniform gtr-uniform">
 										<div class="col-3"><span class="image fit"></span></div>
-										<div class="col-6"><span class="image fit"><img src="../images/CSFinalProject/teleportationArea.jpg" alt="" /></span></div>
+										<div class="col-6"><span class="image fit"><img src="../images/instagramFil/userMenu.jpg" alt="" /></span></div>
 									</div>
 								</div>
-
-								<p>something goes here</p>
-								
-								<div class="box alt">
-									<div class="row gtr-uniform gtr-uniform">
-										<div class="col-4"><span class="image main"></span></div>
-										<div class="col-4"><span class="image fit"><img src="../images/CSFinalProject/orb.jpg" alt="" /></span></div>
-									</div>
-								</div> -->
 								
 								<h2>Conclusion</h2>
 
-								<p>something goes here</p> 
+								<p>This application was extremely useful for illustrating the power of digital signal processing. It showcased how useful 
+								information could be extracted from a digital source, and how that information could then be used for editing and improving 
+								the output of the digital signal. This projected was the third of four mini projects which comprised the capstone submission 
+								for CM2030 graphics programming</p> 
 
 							</section>
 
