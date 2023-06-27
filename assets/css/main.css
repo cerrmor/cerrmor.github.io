@@ -341,6 +341,22 @@ input, select, textarea {
 			box-sizing: border-box;
 		}
 
+		.row.boxHighlight-right{
+			background-color: lightgray; 
+			border-radius: 10px; 
+			padding-right:25px
+		}
+
+		.col-4.boxHighlight{
+			background-color: lightgray; 
+			border-radius: 10px; 
+			padding:30px
+		}
+
+		.col-4.boxHighlight.extraMargin{
+			margin-right: 10px;
+		}
+
 		.row.gtr-uniform > * > :last-child {
 			margin-bottom: 0;
 		}
@@ -2059,6 +2075,10 @@ input, select, textarea {
 			border: 0;
 			border-radius: 0;
 			padding: 0;
+		}
+		.box.alt.bbox
+		{
+			margin-left: 0.9%;
 		}
 
 	.box {
