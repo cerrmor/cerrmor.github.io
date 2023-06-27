@@ -72,12 +72,12 @@
 														
 								<h2>The Brief</h2>
 								
-								<p>The Instagram filter application, replicated an applied image visual effect similer to the one produced for Instagram 
+								<p>The Instagram filter application, replicated an applied image visual effect similar to the one produced for Instagram 
 								under the name early bird filter. This is why the application was named the way it was. This application was a continued 
 								exploration into the field of digital image processing. This project built on knowledge gained from the previous foray 
 								into the manipulation of image pixels, established by the average face project. However, as opposed to the average face 
 								project, where the purpose was to create a new image from a set of images. This project was about using computer algorithms 
-								to enhance an image with desirable effects. More specifically effects such as: 
+								to enhance an image with desirable effects. More specifically effects such as:	 
 								
 								<ul>
 									<li>Inverting the images colors.</li>
@@ -106,8 +106,8 @@
 
 								<h2>Building Blocks</h2>
 							
-								<p>The early bird filter was constructed by building several simpler filter algorithims. These filters were then stacked
-								in series, where the output of one filter, fed the input of the next producing this final outcome.</p>
+								<p>The early bird filter was constructed by building several simpler filter algorithms. These filters were then stacked
+								in series, where the output of one filter, fed the input of the next producing the following outcome.</p>
 								
 								<div class="box alt">
 									<div class="row gtr-uniform gtr-uniform">
@@ -116,7 +116,7 @@
 									</div>
 								</div>
 
-								<p>Many profeshional image processing filters are built in the same way to arrive at the expected outcome. The filters 
+								<p>Many professional image processing filters are built in the same way to arrive at the expected outcome. The filters 
 								that built the early bird filter were:
 								
 								<ul>
@@ -126,8 +126,8 @@
 									<li>Border Filter</li>
 								</ul> 
 								
-								The first filter constructed was the "Sepia Filter". This algorithim took the origional image as input and then processed 
-								that image pixel by pixel, applying a color transform to each color channel.</p>
+								The first filter constructed was the "Sepia Filter". This algorithm took the original image as input and then processed 
+                                that image pixel by pixel, applying a color transform to each color channel.</p>
 <pre>
 	<code>
 		//color transform
@@ -139,7 +139,7 @@
 
 								<p>In many cases, there is a chance that this could produce a value outside the max value of 255. This would normally need 
 								to be accounted for by clamping the value to the range of "0 - 255". However, the pixel array in p5.js is already a clamped 
-								array and as such is an uneccessary step. This filter produced the following effect.</p>
+								array and as such is an unnecessary step. This filter produced the following effect.</p>
 								
 								<div class="box alt bbox">
 									<div class="row gtr-uniform gtr-uniform">
@@ -148,7 +148,7 @@
 										<div class="col-4 boxHighlight extraMargin">
 											<span class="image fit">
 												<img src="../images/instagramFil/husky.jpg" alt="" />
-												<p>Origional Image --></p>
+												<p>Original  Image --></p>
 											</span>
 										</div>
 										<div class="col-4 boxHighlight">
@@ -162,10 +162,10 @@
 
 								<p>The next filter was the "Dark Corners Filter". This filter also known as vignetting, when combined with the previous 
 								filter. Gave the impression that the image it was applied to was older than it truly was. To create this effect, the 
-								luminosity/brightness of each pixel was scaled between 0 and 100%, at a extending distence from the center of the image.
-								Pixels within a 300 pixel radius of the image center, were left at 100% luminosity. After this point and up to the 
-								450 pixel range, the luminosity was scaled from 100% to 40% based on how far from the center it was. Finally all pixels 
-								past the maximum point of 450 pixels were scaled from 40% to 0% luminosity resulting in a image that fades from bright 
+								luminosity/brightness of each pixel was scaled between 0 and 100%, at an extending distance from the center of the image.
+								Pixels within a 300-pixel radius of the image center, were left at 100% luminosity. After this point and up to the 
+								450-pixel range, the luminosity was scaled from 100% to 40% based on how far from the center it was. Finally, all pixels 
+								past the maximum point of 450 pixels were scaled from 40% to 0% luminosity resulting in an image that fades from bright 
 								to dark moving from the center. This can be seen in the following image:</p>
 								
 								<div class="box alt bbox">
@@ -181,10 +181,10 @@
 									</div>
 								</div>
 
-								<p>The filter that came next was the "Radial Blur Filter". This filter was more dynamic then the other filters produced, 
-								as the user could select where the filter was applied in the image. The effect of the filter produced, a subtal bluring 
-								of the image that slowly increase the amount of bluring as it moved farther from the center of where the filter was applied.
-								To achieve this effect, the image was passed to algorithim that applied a convolution matrix to the images pixels and
+								<p>The filter that came next was the "Radial Blur Filter". This filter was more dynamic than the other filters produced, 
+								as the user could select where the filter was applied in the image. The effect of the filter produced, a subtle blurring 
+								of the image that slowly increases the amount of blurring as it moved farther from the center of where the filter was applied.
+								To achieve this effect, the image was passed to an algorithm that applied a convolution matrix to the images pixels and
 								returned the new values.</p>
 
 <pre>
@@ -219,13 +219,12 @@
 		}
 	</code>
 </pre>
-								<p>However, this algorithim alone caused the whole image to be blured at full effect. In order to produce a gradual bluring 
+								<p>However, this algorithm alone caused the whole image to be blurred at full effect. To produce a gradual blurring 
 								effect, it was required to vary how much of the new value was applied to the image dynamically. Furthermore, to allow the user
 								to select the origin point of the blur, this dynamic variable needed to be calculated from the point at which the user had clicked. 
 								The dynamic value used, was calculated by initially calculating the distance from the mouses location, and the location of the 
 								pixel to be updated. This value was then mapped to a value between 0 and 1 based off of the distance moving away from the point 
-								of the initial click. This resulted in the following output:
-								</p>
+								of the initial click. This resulted in the following output:</p>
 
 								<div class="box alt bbox">
 									<div class="row gtr-uniform gtr-uniform" >
@@ -240,9 +239,9 @@
 									</div>
 								</div>
 
-								<p>The final filter was the "Border Filter". This filter mainly added the effect of making the image appear to be a polliroid.
-								This was done by drawing two white hollow rectangle around the border of the image. While this is a very simple step in building 
-								the overall effect it was important because it brought the whole image together. As is clearly seen in the next image.</p>
+								<p>The final filter was the "Border Filter". This filter mainly added the effect of making the image appear to be a polaroid.
+								This was done by drawing two white hollow rectangles around the border of the image. While this is a very simple step in building 
+								the overall effect, it was important because it brought the whole image together. As is clearly seen in the next image.</p>
 								
 								<div class="box alt bbox">
 									<div class="row gtr-uniform gtr-uniform">
@@ -262,7 +261,7 @@
 								<dl>
 									<dt>JavaScript</dt>
 									<dd>
-										<p>Core programming language used in desiging this application.</p>
+										<p>Core programming language used in designing this application.</p>
 									</dd>
 									<dt>p5.js</dt>
 									<dd>
@@ -271,7 +270,7 @@
 									</dd>
 									<dt>p5.clickable.js</dt>
 									<dd>
-										<p>An event driven p5.js library that lets you quickly create and customize buttons</p>
+										<p>An event driven p5.js library that lets you quickly create and customize buttons.</p>
 									</dd>
 									<dt>HTML 5</dt>
 									<dd>
@@ -306,7 +305,7 @@
 										<div class="col-4">
 											<span class="image fit">
 												<img src="../images/instagramFil/darkC.jpg" alt="" />
-												<p>Dark Image Corners Filter</p>
+												<p>Dark Corners Filter</p>
 											</span>
 										</div>
 										<div class="col-4">
