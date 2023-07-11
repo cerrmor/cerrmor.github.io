@@ -67,12 +67,11 @@
 														
 								<h2>The Brief</h2>
 								
-								<p>The Buzz is a multiuser mobile chat application, which is capable of supporting group chats available to all users 
-								and private chats only visible to the individual users selected. User can send messages in real-time, create new 
+								<p>The Buzz is a multi-user mobile chat application capable of supporting, group chats available to all users, 
+								and private chats only visible to the individual users selected. Users can send messages in real-time, create new 
 								chats, and change their profile images. This application was the culmination of all course work and lessons covered in 
-								CM3050 Mobile Development. It also served as the final deliverable at the end of the program. The mobile chat application 
-								"The Buzz" was developed using <strong>React Native</strong> and <strong>Firebase</strong>.</p>
-
+								CM3050 Mobile Development. It also served as the final deliverable at the end of the program.</p>
+	
 								<!-- <div class="box alt">
 									<div class="row gtr-uniform gtr-uniform">
 										<div class="col-3"><span class="image fit"></span></div>
@@ -117,7 +116,7 @@
 									</div>
 								</div>
 								
-								<p>Once a user is signed up, and logged in, users can join chats and message in real-time. Beyond this, a user also has the 
+								<p>Once a user is signed up and logged in, users can join chats and message in real-time. Beyond this, a user also has the 
 								ability to update their profile image, search for users, and create new private/group chats.</p>
 								
 								<div class="box alt">
@@ -155,10 +154,11 @@
 									<li>Engaging/communicating with people over distance.</li>
 								</ul> 
 								
-								<p>As there have been some attempts to solve these issues before, with varying levels of success. It was decided to use 
-								insperation from these previous projects as a starting point. This resulted in the idea to create a mobile messenger application. 
+								<p>As there have been previous attempts to solve these issues with varying levels of success, it was decided to use 
+								inspiration from these previous projects as a starting point. This resulted in the idea to create a mobile messenger application. 
 								<br/>
-								Initially the scope of this project was quiet ambitious considering that the development time was approximatly three months. 
+								Initially, the scope of this project was quite ambitious considering that the development time was approximately three months. 
+	
 								<br/>
 								<br/>
 								The origional features proposed were:</p>
@@ -175,10 +175,11 @@
 									<li>In app mobile games</li>
 								</ol>
 								
-								<p>To simplify some of the development concerns, the choice was made to use a canned solution such as Firebase, as the backend. 
+								<p>To simplify some of the development concerns, the choice was made to use a canned solution such as, Firebase as the backend. 
 								This allowed the development to remain focused on building the frontend experience. With the initial development considerations
-								outlined, project construction began. Early work focused developing the flow of the application, as poor flow can be a extream 
-								pain point to new users. The following flow diagram was used to model the assumed decision paths of a user.</p>
+								outlined, project construction began. Early design work focused on developing the flow of the application. The flow of the 
+								application was important because, poor flow can be an extreme pain point to new users. The following flow diagram was used to 
+								model the assumed decision paths of a user.</p>
 								
 								<div class="box alt">
 									<div class="row gtr-uniform gtr-uniform">
@@ -193,8 +194,8 @@
 									</div>
 								</div>
 
-								<p>By exploring the theroretical flow of the application, it was possible to generate a list of required elements for a minimal 
-								viable product (MVP). These elements were:
+								<p>By exploring the theoretical flow of the application, it was possible to generate a list of required elements for a minimal 
+								viable product (MVP). These elements were:	
 								<ol>
 									<li>Unauthorized User
 										<ul>
@@ -210,8 +211,8 @@
 										</ul>
 									</li>
 								</ol>
-								It was then possible to begin wireframeing the layout for initial user testing. The following images are the midfidelity
-								wireframes developed for testing.</p>
+								It was then possible to begin wireframing the layout for initial user testing. The following images are the mid-fidelity
+                                wireframes developed for testing.</p>
 
 								<div class="box alt">
 									<div class="row gtr-uniform gtr-uniform">
@@ -255,21 +256,21 @@
 									</div>
 								</div>
 								
-								<p>This initial prototype when given to users, proved that the design was fairly sound. Users amongst the test group were 
-								able to easily understand the way the application was suposed to function, and how to navigate to the different features 
+								<p>This initial prototype when tested with users proved that the design was sound. Users amongst the test group were 
+								able to easily understand the way the application was supposed to function, and how to navigate to the different features 
 								available. The user testing at this point validated many of the early design assumptions, and indicated that it was time 
-								to begin writting code. A blank project was generated using <strong>Expo</strong>. This created the starting point for the 
-								project, it was then that all dependancy librarys for screen navigation, initial user interaction, and backend database 
-								communications were added. Much of the development was compleated on the local machine using <strong>React Native</strong>. 
-								However, this created a significant problem. Inadvertantly, the assumption had been made that Expo the development platform, 
-								and Expo snacks an online development and simulation application, were essentialy the same. Testing the application 
+								to begin writing code. A blank project was generated using <strong>Expo</strong> which created the starting point for the 
+								project. It was then that all dependency libraries for screen navigation, initial user interaction, and backend database 
+								communications were added. Much of the development was completed on the local machine using <strong>React Native</strong>. 
+								However, this created a significant problem. Inadvertently, the assumption had been made that Expo the development platform, 
+								and Expo snacks an online development and simulation application, were essentially the same. Testing the application 
 								developed up to this point in expo snacks, proved that this was not the case. The expo snacks development version at this 
 								point, had not been updated to work with the latest library release of <strong>Firebase 9.15.0</strong>. This created 
-								a significant confict with the Firebase dependancy library used. All the code produced communicating with the Firebase API 
-								had to be refactored, as the function calls had fundamentally changed. The refactoring of the code proved to be a huge delay in 
-								development which required the scope of the project to shrink. It was important to have the application working in expo 
-								snacks, as it was to be used for submitting a working copy of the application for grading. After Refactoring the code, 
-								production continued at a regulare pace eventually resulting in the delivered application.</p>
+								a significant conflict with the Firebase dependency library used, as the function calls had fundamentally changed. In turn, 
+								this forced all the code produced communicating with the Firebase API, to be refactored. The refactoring of the code 
+								proved to be a huge delay in development which required the scope of the project to shrink. It was important to have the 
+								application working in expo snacks, as it was to be used for submitting a working copy of the application for grading. 
+								After Refactoring the code, production continued at a regular pace eventually resulting in the delivered application.</p>
 
 								<!-- <div class="box alt">
 									<div class="row gtr-uniform gtr-uniform">
@@ -306,24 +307,23 @@
 								<h2>User Interaction</h2>
 
 								<p>As this application was designed to run on mobile devices such as, android and iOS phones, interaction 
-								methods rely heavily on touch responces. This means almost every action and inturn, the feedback responce, 
-								will simulate a button action.</p>
+								methods rely heavily on touch responses. This means actions carried out by a user, and in turn the feedback 
+								response, will simulate a button action.</p>
 
 								<h3>Navigating the experience</h3>
 								
 								<p>To make navigating the experience as easy as possible, common patterns of usage was replicated from other
 								similar applications. For instance, to open a chat, a user only has to click on the message they want like a 
-								button. The application then automatically redirects to the correct chat screen which is built on demand. 
+								button. The application then automatically redirects to the correct chat screen, which is built on demand. 
 								Also, if a user wants to update their profile image, they only have to click the image in the top left of the 
-								chat screen. These common patterns of usage make similar applications easy for new users to pick up and use, 
-								as they simplify the learning steps required.</p>
+								chat screen. These common patterns of usage make similar applications easy for new users to pick up and use.</p>
 								
 								<h2>Conclusion</h2>
 
 								<p>The production of this application was an excellent experience in the challenges associated with developing
 								mobile based apps. For instance, even though react native is designed to publish automatically to different mobile
-								architectures. It was still required to think about, and try to match the different required standards enforced 
-								by Google, and iOS mobile app stores. Furthermore, even the design of screen element layout, was required 
+								architectures, it was still required to think about, and try to match the different required standards enforced 
+								by; Google, and iOS mobile app stores. Furthermore, even the design of screen element layout, was required 
 								consideration. This was because several of the most popular device designs, had physical or software element that
 								could cause interference with application content. However, the biggest challenge that needed to be considered, 
 								was "what do users consider a standard feature of a similar application?" This challenge came up because Messenger 
