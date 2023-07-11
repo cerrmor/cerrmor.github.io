@@ -148,8 +148,129 @@
 
 								<h2>Building Blocks</h2>
 							
-								<p>something goes here</p>
+								<p>The design of this application began by selecting a challenge to target. In this case the challenges selected were:</p>
 								
+								<ul>
+									<li>Forgetting to respond to recieved messages.</li>
+									<li>Engaging/communicating with people over distance.</li>
+								</ul> 
+								
+								<p>As there have been some attempts to solve these issues before, with varying levels of success. It was decided to use 
+								insperation from these previous projects as a starting point. This resulted in the idea to create a mobile messenger application. 
+								<br/>
+								Initially the scope of this project was quiet ambitious considering that the development time was approximatly three months. 
+								<br/>
+								<br/>
+								The origional features proposed were:</p>
+								
+								<ol>
+									<li>Messenger service:
+										<ul>
+											<li>User management</li>
+											<li>Chat management</li>
+										</ul>
+									</li>
+									<li>Notifications and reminders</li>
+									<li>Video chat</li>
+									<li>In app mobile games</li>
+								</ol>
+								
+								<p>To simplify some of the development concerns, the choice was made to use a canned solution such as Firebase, as the backend. 
+								This allowed the development to remain focused on building the frontend experience. With the initial development considerations
+								outlined, project construction began. Early work focused developing the flow of the application, as poor flow can be a extream 
+								pain point to new users. The following flow diagram was used to model the assumed decision paths of a user.</p>
+								
+								<div class="box alt">
+									<div class="row gtr-uniform gtr-uniform">
+										<div class="col-2">
+											<span class="image fit"></span>
+										</div>
+										<div class="col-10">
+											<span class="image fit">
+												<img src="../images/chatApp/ApplicationFlow.jpg" alt="" />
+											</span>
+										</div>
+									</div>
+								</div>
+
+								<p>By exploring the theroretical flow of the application, it was possible to generate a list of required elements for a minimal 
+								viable product (MVP). These elements were:
+								<ol>
+									<li>Unauthorized User
+										<ul>
+											<li>Login Screen</li>
+											<li>Signup Screen</li>
+										</ul>
+									</li>
+									<li>Authorized User
+										<ul>
+											<li>Home Screen</li>
+											<li>Create Chat Screen</li>
+											<li>Chat Screen</li>
+										</ul>
+									</li>
+								</ol>
+								It was then possible to begin wireframeing the layout for initial user testing. The following images are the midfidelity
+								wireframes developed for testing.</p>
+
+								<div class="box alt">
+									<div class="row gtr-uniform gtr-uniform">
+										<div class="col-1">
+											<span class="image fit"></span>
+										</div>
+										<div class="col-3">
+											<span class="image fit">
+												<img src="../images/chatApp/LoginPage.jpg" alt="" />
+												<h4>Login Screen</h4>
+											</span>
+										</div>
+										<div class="col-3">
+											<span class="image fit">
+												<img src="../images/chatApp/RegistrationPage.jpg" alt="" />
+												<h4>Signup Screen</h4>
+											</span>
+										</div>
+										<div class="col-3">
+											<span class="image fit">
+												<img src="../images/chatApp/ChatsPage.jpg" alt="" />
+												<h4>Home Screen</h4>
+											</span>
+										</div>
+										<div class="col-3">
+											<span class="image fit">
+											</span>
+										</div>
+										<div class="col-3">
+											<span class="image fit">
+												<img src="../images/chatApp/CreateGroupPage.jpg" alt="" />
+												<h4>Create Chat Screen</h4>
+											</span>
+										</div>
+										<div class="col-3">
+											<span class="image fit">
+												<img src="../images/chatApp/BobChat.jpg" alt="" />
+												<h4>Chat Screen</h4>
+											</span>
+										</div>
+									</div>
+								</div>
+								
+								<p>This initial prototype when given to users, proved that the design was fairly sound. Users amongst the test group were 
+								able to easily understand the way the application was suposed to function, and how to navigate to the different features 
+								available. The user testing at this point validated many of the early design assumptions, and indicated that it was time 
+								to begin writting code. A blank project was generated using <strong>Expo</strong>. This created the starting point for the 
+								project, it was then that all dependancy librarys for screen navigation, initial user interaction, and backend database 
+								communications were added. Much of the development was compleated on the local machine using <strong>React Native</strong>. 
+								However, this created a significant problem. Inadvertantly, the assumption had been made that Expo the development platform, 
+								and Expo snacks an online development and simulation application, were essentialy the same. Testing the application 
+								developed up to this point in expo snacks, proved that this was not the case. The expo snacks development version at this 
+								point, had not been updated to work with the latest library release of <strong>Firebase 9.15.0</strong>. This created 
+								a significant confict with the Firebase dependancy library used. All the code produced communicating with the Firebase API 
+								had to be refactored, as the function calls had fundamentally changed. The refactoring of the code proved to be a huge delay in 
+								development which required the scope of the project to shrink. It was important to have the application working in expo 
+								snacks, as it was to be used for submitting a working copy of the application for grading. After Refactoring the code, 
+								production continued at a regulare pace eventually resulting in the delivered application.</p>
+
 								<!-- <div class="box alt">
 									<div class="row gtr-uniform gtr-uniform">
 										<div class="col-2"><span class="image fit"></span></div>
